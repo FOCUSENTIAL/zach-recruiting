@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jetzt bewerben – ZACH GEBÄUDETECHNIK Kaindorf</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #13A538;
+    --red:   #E30613;
+    --black: #0D0D0D;
+    --white: #FFFFFF;
+    --gray:  #1A1A1A;
+    --gray2: #222;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--black);
+    border-bottom: 3px solid var(--green);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .topbar-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+  }
+
+  .logo-text { display: flex; flex-direction: column; line-height: 1.15; }
+
+  .logo-zach {
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+  .logo-sub {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: var(--green);
+    text-transform: uppercase;
+  }
+
+  .topbar-cta {
+    margin-left: auto;
+    background: var(--green);
+    color: var(--white);
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .topbar-cta:hover { background: #0f8a2e; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--black);
+    padding: 52px 24px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: -20px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 60px solid rgba(19,165,56,0.05);
+    pointer-events: none;
+  }
+
+  .since-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 20px;
+  }
+
+  .since-tag::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--red);
+    flex-shrink: 0;
+  }
+
+  .hero-headline {
+    font-size: clamp(44px, 13vw, 76px);
+    font-weight: 500;
+    line-height: 1.0;
+    margin-bottom: 8px;
+    letter-spacing: -1.5px;
+  }
+
+  .hero-headline strong {
+    font-weight: 900;
+    display: block;
+    color: var(--green);
+  }
+
+  .hero-tagline {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin: 10px 0 28px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    max-width: 380px;
+    line-height: 1.75;
+    margin-bottom: 36px;
+  }
+
+  .hero-desc strong { color: var(--white); font-weight: 500; }
+
+  .btn-main {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--green);
+    color: var(--white);
+    text-decoration: none;
+    padding: 18px 32px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    width: 100%;
+    max-width: 400px;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-main:hover {
+    background: #0f8a2e;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(19,165,56,0.35);
+  }
+
+  /* ── TICKER ── */
+  .stripe { background: var(--red); overflow: hidden; padding: 9px 0; }
+
+  .stripe-inner {
+    display: flex;
+    gap: 36px;
+    white-space: nowrap;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--white);
+    animation: ticker 22s linear infinite;
+  }
+
+  .stripe-inner span::before { content: '● '; font-size: 7px; vertical-align: middle; }
+
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── SERVICES BAR ── */
+  .services-bar {
+    background: var(--gray);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 20px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .svc {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .svc.active { color: var(--green); }
+  .svc-sep { color: rgba(255,255,255,0.12); }
+
+  /* ── SECTIONS ── */
+  .section { padding: 52px 24px; }
+  .section.alt { background: var(--gray); border-top: 1px solid var(--border); }
+
+  .eyebrow {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+
+  .sec-title {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+  }
+
+  .sec-title strong { font-weight: 900; }
+
+  /* ── BENEFITS ── */
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    opacity: 0;
+    transform: translateX(-16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .benefit-item.visible { opacity: 1; transform: none; }
+
+  .benefit-num {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 1px;
+    min-width: 28px;
+    padding-top: 3px;
+  }
+
+  .benefit-title { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+
+  .benefit-text {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+  }
+
+  /* ── ÜBER UNS ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .acard {
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 18px 16px;
+  }
+
+  .acard.full { grid-column: 1 / -1; }
+  .acard.gl { border-left: 3px solid var(--green); }
+  .acard.rl { border-left: 3px solid var(--red); }
+
+  .acard-label {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 6px;
+  }
+
+  .acard-value { font-size: 30px; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+  .acard-value.g { color: var(--green); }
+  .acard-sub { font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.3); }
+  .acard-text { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+  /* ── STANDORT ── */
+  .standort-box {
+    background: var(--gray);
+    border-top: 1px solid var(--border);
+    padding: 32px 24px;
+  }
+
+  .standort-card {
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green);
+    border-radius: 2px;
+    padding: 20px 18px;
+    margin-top: 16px;
+  }
+
+  .standort-name {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+
+  .standort-hq {
+    display: inline-block;
+    background: rgba(19,165,56,0.15);
+    border: 1px solid rgba(19,165,56,0.3);
+    color: var(--green);
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .standort-addr { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.8; }
+  .standort-addr a { color: rgba(19,165,56,0.7); text-decoration: none; }
+
+  /* ── FORM SECTION ── */
+  .form-section {
+    background: var(--black);
+    padding: 56px 24px 80px;
+    border-top: 3px solid var(--green);
+  }
+
+  .form-intro-sub {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.65;
+    margin-bottom: 32px;
+    margin-top: 4px;
+  }
+
+  .form-wrap { max-width: 560px; }
+
+  .job-badge {
+    background: var(--green);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .job-badge-title { font-size: 13px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; color: var(--white); }
+
+  .job-tag {
+    background: rgba(0,0,0,0.2);
+    color: var(--white);
+    padding: 3px 10px;
+    border-radius: 2px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .fdiv {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 28px 0 18px;
+  }
+
+  .fdiv-line { flex: 1; height: 1px; background: var(--border); }
+
+  .fdiv-label {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    white-space: nowrap;
+  }
+
+  .field { margin-bottom: 14px; }
+
+  label {
+    display: block;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.38);
+    margin-bottom: 7px;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    background: var(--gray2);
+    border: 1.5px solid rgba(255,255,255,0.09);
+    border-radius: 2px;
+    color: var(--white);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.18); }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(19,165,56,0.12);
+  }
+
+  input.error, select.error { border-color: var(--red) !important; }
+
+  select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-color: var(--gray2);
+    padding-right: 44px;
+  }
+
+  select option { background: #1C1C1C; color: white; }
+  textarea { resize: vertical; min-height: 100px; }
+
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+  .chip-opt { position: relative; }
+
+  .chip-opt input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0; height: 0;
+  }
+
+  .chip-opt label {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--gray2);
+    border: 1.5px solid rgba(255,255,255,0.09);
+    border-radius: 2px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all 0.15s;
+    margin: 0;
+  }
+
+  .chip-opt input[type="checkbox"]:checked + label {
+    background: rgba(19,165,56,0.15);
+    border-color: var(--green);
+    color: var(--green);
+  }
+
+  .chip-opt label:hover { border-color: rgba(19,165,56,0.5); color: rgba(255,255,255,0.7); }
+
+  .opt-badge {
+    display: inline-block;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  .consent-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: var(--gray2);
+    border: 1.5px solid var(--border);
+    border-radius: 2px;
+    margin: 22px 0 20px;
+    cursor: pointer;
+  }
+
+  .consent-wrap input[type="checkbox"] {
+    width: 18px;
+    min-width: 18px;
+    height: 18px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 1px;
+    accent-color: var(--green);
+    flex-shrink: 0;
+  }
+
+  .consent-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  #submit-btn { width: 100%; max-width: 100%; font-size: 15px; }
+
+  .success-box {
+    display: none;
+    background: rgba(19,165,56,0.1);
+    border: 1px solid rgba(19,165,56,0.35);
+    border-left: 3px solid var(--green);
+    border-radius: 2px;
+    padding: 24px;
+    margin-top: 18px;
+  }
+
+  .success-box.shown { display: block; }
+  .success-title { font-size: 18px; font-weight: 700; color: var(--green); margin-bottom: 8px; }
+  .success-text { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    border-top: 3px solid var(--green);
+    padding: 24px;
+    text-align: center;
+  }
+
+  .footer-logo-name { font-size: 13px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-logo-name span { color: var(--green); }
+
+  footer p { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.3); line-height: 1.9; }
+  footer a { color: rgba(19,165,56,0.8); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 480px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .acard.full { grid-column: 1; }
+    .row-2 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <img src="ZACH_Logo_4c.png" alt="Zach Gebäudetechnik" class="topbar-logo">
+  <div class="logo-text">
+    <div class="logo-zach">ZACH</div>
+    <div class="logo-sub">Gebäudetechnik</div>
+  </div>
+  <a href="#bewerben" class="topbar-cta">Jetzt bewerben</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="since-tag">EINER FÜR ALLES – SEIT 1930</div>
+  <h1 class="hero-headline">
+    Wir suchen<br>
+    <strong>Installateure.</strong>
+  </h1>
+  <p class="hero-tagline">HKLS · Vollzeit · Kaindorf</p>
+  <p class="hero-desc">
+    <strong>Zach Gebäudetechnik</strong> – dein neuer Arbeitgeber in der Steiermark. Faire Bezahlung, Firmenfahrzeug, echtes Team. Kein langer Bewerbungsprozess.
+  </p>
+  <a href="#bewerben" class="btn-main">
+    Jetzt bewerben
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</section>
+
+<!-- TICKER -->
+<div class="stripe">
+  <div class="stripe-inner">
+    <span>Heizung</span><span>Klima</span><span>Wasser</span><span>Elektro</span><span>Sicherheit</span><span>Seit 1930</span><span>Kaindorf</span><span>Pöllau</span><span>Oberwart</span><span>Ilz</span><span>Jetzt bewerben</span>
+    <span>Heizung</span><span>Klima</span><span>Wasser</span><span>Elektro</span><span>Sicherheit</span><span>Seit 1930</span><span>Kaindorf</span><span>Pöllau</span><span>Oberwart</span><span>Ilz</span><span>Jetzt bewerben</span>
+  </div>
+</div>
+
+<!-- SERVICES BAR -->
+<div class="services-bar">
+  <span class="svc active">Heizung</span><span class="svc-sep">|</span>
+  <span class="svc active">Klima</span><span class="svc-sep">|</span>
+  <span class="svc active">Wasser</span><span class="svc-sep">|</span>
+  <span class="svc">Elektro</span><span class="svc-sep">|</span>
+  <span class="svc">Sicherheit</span>
+</div>
+
+<!-- BENEFITS -->
+<section class="section">
+  <div class="eyebrow">Das bieten wir</div>
+  <h2 class="sec-title">Dein neuer Job<br><strong>wartet auf dich.</strong></h2>
+  <div class="benefit-list">
+    <div class="benefit-item">
+      <div class="benefit-num">01</div>
+      <div><div class="benefit-title">Faire, übertarifliche Bezahlung</div><div class="benefit-text">Deine Arbeit hat ihren Wert. Wir zahlen entsprechend – plus regelmäßige Anpassungen.</div></div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-num">02</div>
+      <div><div class="benefit-title">Firmenfahrzeug</div><div class="benefit-text">Modernes Firmenfahrzeug steht bereit. Kein eigenes Auto nötig.</div></div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-num">03</div>
+      <div><div class="benefit-title">Geregelte Arbeitszeiten</div><div class="benefit-text">Feierabend ist Feierabend. Wir respektieren deine Freizeit.</div></div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-num">04</div>
+      <div><div class="benefit-title">Weiterbildung auf Firmenkosten</div><div class="benefit-text">Kurse, Schulungen, Zertifikate – wir investieren in deine Zukunft.</div></div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-num">05</div>
+      <div><div class="benefit-title">Echtes Team, kurze Wege</div><div class="benefit-text">Kein anonymes Großunternehmen. Bei uns kennt man sich – und hilft sich.</div></div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-num">06</div>
+      <div><div class="benefit-title">Modernste Ausrüstung</div><div class="benefit-text">Topwerkzeug, neue Fahrzeuge, professionelle Ausstattung. Wir stellen alles.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ÜBER UNS -->
+<section class="section alt">
+  <div class="eyebrow">Über uns</div>
+  <h2 class="sec-title">ZACH<br><strong>Gebäudetechnik.</strong></h2>
+  <div class="about-grid">
+    <div class="acard gl">
+      <div class="acard-label">Gegründet</div>
+      <div class="acard-value g">1930</div>
+      <div class="acard-sub">Seit über 90 Jahren</div>
+    </div>
+    <div class="acard rl">
+      <div class="acard-label">Mitarbeiter</div>
+      <div class="acard-value">~80</div>
+      <div class="acard-sub">An 4 Standorten</div>
+    </div>
+    <div class="acard full">
+      <div class="acard-label">Wer wir sind</div>
+      <p class="acard-text">Zach Gebäudetechnik GmbH ist ein etabliertes Familienunternehmen aus Kaindorf in der Steiermark – seit drei Generationen in Familienhand. Mit rund 80 Mitarbeiterinnen und Mitarbeitern planen, installieren und warten wir Anlagen in den Bereichen Heizung, Klima, Wasser, Elektro und Sicherheit. Mit Handschlagqualität seit 1930.</p>
+    </div>
+    <div class="acard full gl">
+      <div class="acard-label">Was wir suchen</div>
+      <p class="acard-text">Installateur (HKLS) mit abgeschlossener Ausbildung oder solider Praxiserfahrung. Vollzeit, sofort. Auch Quereinsteiger mit Handwerk-Background willkommen. Einfach Formular unten ausfüllen – wir melden uns.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STANDORT -->
+<section class="standort-box">
+  <div class="eyebrow">Standort der Stelle</div>
+  <div class="standort-card">
+    <div class="standort-name">Kaindorf <span class="standort-hq">Hauptstandort</span></div>
+    <div class="standort-addr">
+      Kaindorf 14, 8224 Kaindorf<br>
+      T: <a href="tel:+433334220500">03334/2205-0</a> &nbsp;·&nbsp; <a href="mailto:kaindorf@zachgmbh.at">kaindorf@zachgmbh.at</a><br>
+      <a href="https://www.zachgmbh.at" target="_blank">www.zachgmbh.at</a>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAR -->
+<section class="form-section" id="bewerben">
+  <div class="form-wrap">
+    <div class="eyebrow">Jetzt bewerben</div>
+    <h2 class="sec-title">In 2 Minuten<br><strong>beworben.</strong></h2>
+    <p class="form-intro-sub">Kein Lebenslauf nötig. Einfach Formular ausfüllen – wir melden uns bei dir.</p>
+
+    <div class="job-badge">
+      <span class="job-badge-title">Installateur (HKLS)</span>
+      <span class="job-tag">Vollzeit</span>
+      <span class="job-tag">Sofort</span>
+      <span class="job-tag">Kaindorf</span>
+    </div>
+
+    <!--
+      ═══════════════════════════════════════════════════════
+      FORMSPREE SETUP (einmalig, 5 Minuten):
+      1. Geh auf https://formspree.io → kostenlos registrieren
+      2. "New Form" → Zieladresse: zisser.h@zachgmbh.at
+      3. Du bekommst eine ID wie "xpwzabcd"
+      4. Ersetze unten YOUR_FORMSPREE_ID mit dieser ID
+      ═══════════════════════════════════════════════════════
+    -->
+    <form id="bewerbungsform" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" novalidate>
+
+      <input type="hidden" name="_subject" value="Neue Bewerbung – Installateur (HKLS) Kaindorf">
+      <input type="text"   name="_gotcha" style="display:none">
+
+      <div class="fdiv"><div class="fdiv-line"></div><div class="fdiv-label">Persönliche Daten</div><div class="fdiv-line"></div></div>
+
+      <div class="row-2">
+        <div class="field">
+          <label for="vorname">Vorname *</label>
+          <input type="text" id="vorname" name="vorname" placeholder="Max" required>
+        </div>
+        <div class="field">
+          <label for="nachname">Nachname *</label>
+          <input type="text" id="nachname" name="nachname" placeholder="Mustermann" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="telefon">Telefon *</label>
+        <input type="tel" id="telefon" name="telefon" placeholder="+43 664 …" required>
+      </div>
+
+      <div class="field">
+        <label for="email">E-Mail <span class="opt-badge">optional</span></label>
+        <input type="email" id="email" name="email" placeholder="max@mail.at">
+      </div>
+
+      <div class="field">
+        <label for="wohnort">Wohnort *</label>
+        <input type="text" id="wohnort" name="wohnort" placeholder="z.B. Hartberg" required>
+      </div>
+
+      <div class="fdiv"><div class="fdiv-line"></div><div class="fdiv-label">Berufserfahrung</div><div class="fdiv-line"></div></div>
+
+      <div class="field">
+        <label for="ausbildung">Ausbildung / Abschluss *</label>
+        <select id="ausbildung" name="ausbildung" required>
+          <option value="" disabled selected>Bitte auswählen …</option>
+          <option>Abgeschlossene Lehre (Installateur/HKLS)</option>
+          <option>Techniker / Meister</option>
+          <option>HTL / Fachschule</option>
+          <option>Quereinsteiger mit Handwerkerfahrung</option>
+          <option>Sonstiges</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="erfahrung">Berufserfahrung *</label>
+        <select id="erfahrung" name="erfahrung" required>
+          <option value="" disabled selected>Bitte auswählen …</option>
+          <option>Bis 2 Jahre</option>
+          <option>2–5 Jahre</option>
+          <option>5–10 Jahre</option>
+          <option>Mehr als 10 Jahre</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Schwerpunkt <span class="opt-badge">optional</span></label>
+        <div class="chip-group">
+          <div class="chip-opt"><input type="checkbox" id="ch-h" name="schwerpunkt" value="Heizung"><label for="ch-h">Heizung</label></div>
+          <div class="chip-opt"><input type="checkbox" id="ch-k" name="schwerpunkt" value="Klima"><label for="ch-k">Klima</label></div>
+          <div class="chip-opt"><input type="checkbox" id="ch-w" name="schwerpunkt" value="Wasser / Sanitär"><label for="ch-w">Wasser / Sanitär</label></div>
+          <div class="chip-opt"><input type="checkbox" id="ch-e" name="schwerpunkt" value="Elektro"><label for="ch-e">Elektro</label></div>
+          <div class="chip-opt"><input type="checkbox" id="ch-s" name="schwerpunkt" value="Sicherheit"><label for="ch-s">Sicherheit</label></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="einstieg">Frühestmöglicher Einstieg</label>
+        <select id="einstieg" name="einstieg">
+          <option value="" disabled selected>Bitte auswählen …</option>
+          <option>Sofort</option>
+          <option>In ca. 1 Monat</option>
+          <option>In ca. 3 Monaten</option>
+          <option>Noch offen</option>
+        </select>
+      </div>
+
+      <div class="fdiv"><div class="fdiv-line"></div><div class="fdiv-label">Zusätzliches</div><div class="fdiv-line"></div></div>
+
+      <div class="field">
+        <label for="nachricht">Kurze Nachricht <span class="opt-badge">optional</span></label>
+        <textarea id="nachricht" name="nachricht" placeholder="Ergänzende Infos, Fragen, oder einfach kurz wer du bist …"></textarea>
+      </div>
+
+      <label class="consent-wrap" style="font-size:inherit;letter-spacing:0;text-transform:none;color:inherit;">
+        <input type="checkbox" id="consent" required>
+        <span class="consent-text">Ich bin damit einverstanden, dass meine Daten zum Zweck der Bewerbungsbearbeitung gespeichert und verarbeitet werden. Die Daten werden nicht an Dritte weitergegeben und nach Abschluss des Bewerbungsverfahrens gelöscht.</span>
+      </label>
+
+      <button type="submit" class="btn-main" id="submit-btn">
+        Bewerbung absenden
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+
+      <div class="success-box" id="success">
+        <div class="success-title">✓ Bewerbung gesendet!</div>
+        <div class="success-text">Danke, <span id="success-name"></span>! Wir haben deine Bewerbung erhalten und melden uns so bald wie möglich. Bei Fragen: <strong>03334/2205-0</strong></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo-name">ZACH <span>Gebäudetechnik</span></div>
+  <p>
+    Zach GmbH · Kaindorf 14 · 8224 Kaindorf<br>
+    T: <a href="tel:+433334220500">+43 3334 2205-0</a> · <a href="mailto:kaindorf@zachgmbh.at">kaindorf@zachgmbh.at</a><br>
+    <a href="https://www.zachgmbh.at" target="_blank">www.zachgmbh.at</a><br>
+    <span style="color:rgba(255,255,255,0.18);font-size:11px;letter-spacing:1.5px;">KAINDORF | PÖLLAU | OBERWART | ILZ</span>
+  </p>
+</footer>
+
+<script>
+  // Scroll-Reveal Benefits
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.benefit-item').forEach(el => obs.observe(el));
+
+  // Form submit → Formspree
+  document.getElementById('bewerbungsform').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Validierung
+    const req = ['vorname','nachname','telefon','wohnort','ausbildung','erfahrung'];
+    let ok = true;
+
+    req.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        el.classList.add('error');
+        ok = false;
+        el.addEventListener('input', () => el.classList.remove('error'), { once: true });
+      }
+    });
+
+    const consent = document.getElementById('consent');
+    if (!consent.checked) {
+      consent.closest('.consent-wrap').style.borderColor = 'var(--red)';
+      ok = false;
+      consent.addEventListener('change', () => consent.closest('.consent-wrap').style.borderColor = '', { once: true });
+    }
+
+    if (!ok) return;
+
+    const btn = document.getElementById('submit-btn');
+    btn.innerHTML = 'Wird gesendet …';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        document.getElementById('success-name').textContent = document.getElementById('vorname').value;
+        const box = document.getElementById('success');
+        box.classList.add('shown');
+        box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        btn.innerHTML = '✓ Gesendet';
+        btn.style.background = '#0f8a2e';
+      } else {
+        throw new Error();
+      }
+    } catch {
+      btn.innerHTML = 'Fehler – bitte nochmal versuchen';
+      btn.style.background = 'var(--red)';
+      btn.disabled = false;
+      setTimeout(() => {
+        btn.innerHTML = 'Bewerbung absenden <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
+    }
+  });
+</script>
+</body>
+</html>
