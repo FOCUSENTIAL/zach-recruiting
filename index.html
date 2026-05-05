@@ -557,6 +557,7 @@
     margin-top: 1px;
     accent-color: var(--green);
     flex-shrink: 0;
+    pointer-events: none;
   }
 
   .consent-text {
@@ -834,10 +835,10 @@
         <textarea id="nachricht" name="nachricht" placeholder="Ergänzende Infos, Fragen, oder einfach kurz wer du bist …"></textarea>
       </div>
 
-      <label class="consent-wrap" style="font-size:inherit;letter-spacing:0;text-transform:none;color:inherit;">
-        <input type="checkbox" id="consent" required>
-        <span class="consent-text">Ich bin damit einverstanden, dass meine Daten zum Zweck der Bewerbungsbearbeitung gespeichert und verarbeitet werden. Die Daten werden nicht an Dritte weitergegeben und nach Abschluss des Bewerbungsverfahrens gelöscht.</span>
-      </label>
+     <div class="consent-wrap" onclick="document.getElementById('consent').click()">
+  <input type="checkbox" id="consent" required>
+  <span class="consent-text">Ich bin damit einverstanden, dass meine Daten zum Zweck der Bewerbungsbearbeitung gespeichert und verarbeitet werden. Die Daten werden nicht an Dritte weitergegeben und nach Abschluss des Bewerbungsverfahrens gelöscht.</span>
+</div>
 
       <button type="submit" class="btn-main" id="submit-btn">
         Bewerbung absenden
